@@ -4,6 +4,7 @@ import scala.scalajs.js
 import scala.scalajs.js.annotation.JSExportTopLevel
 import org.scalajs.dom.{console, document, window, HTMLDivElement}
 
+
 object Main :
 
   private def afterLastSemicolon(s: String): Option[String] =
@@ -25,4 +26,5 @@ object Main :
   @JSExportTopLevel("main")
   def main(args: Array[String]): Unit =
     reportVersionOnConsole()
+    Demo.firstPlot()
 
