@@ -2,14 +2,102 @@
 <head>
   <meta charset="utf-8">
   <meta name="author" content="Ruud Vlaming">
-  <title>Plotly.js Demo</title>
+  <title>Tyrosine Demo</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/billboard-3.11.0-min.css">
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-  <script type="text/javascript" defer src="js/plotly-2.29.0.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/plotly-2.29.1.min.js"     charset="utf-8"></script>
+  <script type="text/javascript" src="js/apexcharts-3.46.0-min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/echarts-5.4.3-min.js"     charset="utf-8"></script>
+  <script type="text/javascript" src="js/chart-3.9.1-min.js"       charset="utf-8"></script>
+  <script type="text/javascript" src="js/d3-6.7.0-min"             charset="utf-8"></script>
+  <script type="text/javascript" src="js/billboard-3.11.0-min.js"  charset="utf-8"></script>
   <script type="text/javascript" defer src="target/scala-3.3.1/tyrosine-fastopt/main.js"></script>
 </head>
 <body>
-<div id="plot"></div>
+<div id="plotly" style="width: 800px;height:500px;"></div>
+<div id="apexchart" style="width: 800px;height:500px;"></div>
+<div id="xecharts" style="width: 800px;height:500px;"></div>
+<div style="width:800px;height:500px"> <canvas id="chartjs"></canvas></div>
+<div id="billboard" style="width: 800px;height:500px;"></div>
 <div id="version">Tyrosine Demo.</div>
 </body>
+
+
+<script>
+  //ApexCharts
+  var options =
+  { series:
+    [ { name: 'Peter',
+        data: [5, 5, 10, 8, 7, 5, 4, null, null, null, 10, 10, 7, 8, 6, 9] },
+      { name: 'Johnny',
+        data: [10, 15, null, 12, null, 10, 12, 15, null, null, 12, null, 14, null, null, null] } ],
+    chart:
+    { height: 350,
+      type: 'line',
+      zoom: { enabled: false },
+      animations: { enabled: false } },
+      stroke:
+      { width: [5,5,4],
+        curve: 'straight' },
+      labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+      title: { text: 'Missing data (null values)' } };
+  var chart = new ApexCharts(document.querySelector("#apexchart"), options);
+  chart.render();
+
+  //Echarts
+  var chartDom = document.getElementById('xecharts');
+  var myChart = echarts.init(chartDom);
+  var option =
+  { xAxis:
+    { type: 'category',
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] },
+    yAxis:
+    { type: 'value' },
+    series:
+    [ { data: [350, 130, 224, 70, 135, 14,  200],
+        type: 'line' },
+      { data: [150, 230,  24, NaN, 35, 147, 260],
+        type: 'line' } ] };
+  myChart.setOption(option);
+
+  //ChartJS
+  const xyValues =
+  [ {x:50, y:7},
+    {x:60, y:8},
+    {x:70, y:8},
+    {x:80, y:9},
+    {x:90, y:9},
+    {x:100, y:9},
+    {x:110, y:10},
+    {x:120, y:11},
+    {x:130, y:14},
+    {x:140, y:14},
+    {x:150, y:15} ];
+
+  new Chart('chartjs',
+  { type: 'line',
+    data:
+    { datasets:
+    [{  pointRadius: 4,
+        pointBackgroundColor: 'rgb(0,0,255)',
+        data: xyValues }] },
+    options:
+    { legend: {display: true},
+      scales:
+      { x:
+        { type: 'linear',
+          position: 'bottom' } } } });
+
+  //BillBoard
+  var bbchart = bb.generate({
+  data:
+  { columns:
+    [ [ "data1", 30, 200, 100, 400, 150, 250],
+      [ "data2", 50, 20, 10, 40, 15, 25] ],
+    type: "line" },
+  bindto: "#billboard" });
+
+</script>
+
 </html>

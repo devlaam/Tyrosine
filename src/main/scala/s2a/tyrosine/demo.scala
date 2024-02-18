@@ -16,5 +16,5 @@ object Demo :
   private val ys2 = Arraj(16.0,  8, Double.NaN, 11, 2, 1, 4, 1)
   private val pl2 = Plot(x = xs2, y = ys2, connectgaps = true)
 
-  def firstPlot(): Unit = Plotly.newPlot("plot",Arraj(pl1,pl2),layout,config)
+  def firstPlot(): Unit = Plotly.newPlot("plotly",Arraj(pl1,pl2),layout,config)
 
