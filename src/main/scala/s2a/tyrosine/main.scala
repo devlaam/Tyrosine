@@ -29,4 +29,6 @@ object Main :
     plotly.Demo.firstPlot("plotly")
     apexcharts.Demo.firstPlot("apexchart")
     chartjs.Demo.firstPlot("chartjs")
+    echarts.Demo.firstPlot("echarts")
+    billboard.Demo.firstPlot("billboard")
 
