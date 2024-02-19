@@ -1,4 +1,4 @@
-package s2a.tyrosine.basic
+package s2a.tyrosine.plotly.basic
 
 import scala.scalajs.js
 import scala.scalajs.js.{Array as Arraj, native}
