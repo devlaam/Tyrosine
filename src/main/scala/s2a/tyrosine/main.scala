@@ -26,5 +26,6 @@ object Main :
   @JSExportTopLevel("main")
   def main(args: Array[String]): Unit =
     reportVersionOnConsole()
-    Demo.firstPlot()
+    plotly.Demo.firstPlot("plotly")
+    apexcharts.Demo.firstPlot("apexchart")
 
