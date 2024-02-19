@@ -17,7 +17,7 @@
 <body>
 <div id="plotly" style="width: 800px;height:500px;"></div>
 <div id="apexchart" style="width: 800px;height:500px;"></div>
-<div id="xecharts" style="width: 800px;height:500px;"></div>
+<div id="echarts" style="width: 800px;height:500px;"></div>
 <div style="width:800px;height:500px"> <canvas id="chartjs"></canvas></div>
 <div id="billboard" style="width: 800px;height:500px;"></div>
 <div id="version">Tyrosine Demo.</div>
@@ -26,7 +26,7 @@
 
 <script>
   //Echarts
-  var chartDom = document.getElementById('xecharts');
+  var chartDom = document.getElementById('echarts');
   var myChart = echarts.init(chartDom);
   var option =
   { xAxis:
@@ -42,32 +42,32 @@
   myChart.setOption(option);
 
   //ChartJS
-  const xyValues =
-  [ {x:50, y:7},
-    {x:60, y:8},
-    {x:70, y:8},
-    {x:80, y:9},
-    {x:90, y:9},
-    {x:100, y:9},
-    {x:110, y:10},
-    {x:120, y:11},
-    {x:130, y:14},
-    {x:140, y:14},
-    {x:150, y:15} ];
+  // const xyValues =
+  // [ {x:50, y:7},
+  //   {x:60, y:8},
+  //   {x:70, y:8},
+  //   {x:80, y:9},
+  //   {x:90, y:9},
+  //   {x:100, y:9},
+  //   {x:110, y:10},
+  //   {x:120, y:11},
+  //   {x:130, y:14},
+  //   {x:140, y:14},
+  //   {x:150, y:15} ];
 
-  new Chart('chartjs',
-  { type: 'line',
-    data:
-    { datasets:
-    [{  pointRadius: 4,
-        pointBackgroundColor: 'rgb(0,0,255)',
-        data: xyValues }] },
-    options:
-    { legend: {display: true},
-      scales:
-      { x:
-        { type: 'linear',
-          position: 'bottom' } } } });
+  // new Chart('chartjs',
+  // { type: 'line',
+  //   data:
+  //   { datasets:
+  //   [{  pointRadius: 4,
+  //       pointBackgroundColor: 'rgb(0,0,255)',
+  //       data: xyValues }] },
+  //   options:
+  //   { legend: {display: true},
+  //     scales:
+  //     { x:
+  //       { type: 'linear',
+  //         position: 'bottom' } } } });
 
   //BillBoard
   var bbchart = bb.generate({

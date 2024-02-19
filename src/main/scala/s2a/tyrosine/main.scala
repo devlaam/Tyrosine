@@ -28,4 +28,5 @@ object Main :
     reportVersionOnConsole()
     plotly.Demo.firstPlot("plotly")
     apexcharts.Demo.firstPlot("apexchart")
+    chartjs.Demo.firstPlot("chartjs")
 
