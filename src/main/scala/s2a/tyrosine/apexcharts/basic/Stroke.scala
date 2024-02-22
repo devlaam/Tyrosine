@@ -9,7 +9,7 @@ import scala.scalajs.js.Dynamic.literal
 @native
 trait Stroke extends js.Object :
   val width: Arraj[Int] = native
-  val curve: String = native
+  val curve: String     = native
 
 object Stroke :
   def apply(width: Arraj[Int], curve: String): Stroke =

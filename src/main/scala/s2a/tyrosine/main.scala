@@ -4,6 +4,16 @@ import scala.scalajs.js
 import scala.scalajs.js.annotation.JSExportTopLevel
 import org.scalajs.dom.{console, document, window, HTMLDivElement}
 
+import s2a.tyrosine.generic.basic.Chart
+
+enum Engine :
+  case ApexCharts, BillBoard, ChartJS, ECharts, Plotly
+
+
+trait Demo :
+  def test(root: String): Unit
+  def chart(root: String, chart: Chart): Unit
+
 
 object Main :
 
@@ -26,9 +36,15 @@ object Main :
   @JSExportTopLevel("main")
   def main(args: Array[String]): Unit =
     reportVersionOnConsole()
-    plotly.Demo.firstPlot("plotly")
-    apexcharts.Demo.firstPlot("apexchart")
-    chartjs.Demo.firstPlot("chartjs")
-    echarts.Demo.firstPlot("echarts")
-    billboard.Demo.firstPlot("billboard")
+    apexcharts.Demo.test("nativeApexchart")
+    billboard.Demo.test("nativeBillboard")
+    chartjs.Demo.test("nativeChartjs")
+    echarts.Demo.test("nativeEcharts")
+    plotly.Demo.test("nativePlotly")
+
+    generic.Demo.test("genericApexchart",Engine.ApexCharts)
+    generic.Demo.test("genericBillboard",Engine.BillBoard)
+    generic.Demo.test("genericChartjs",Engine.ChartJS)
+    generic.Demo.test("genericEcharts",Engine.ECharts)
+    generic.Demo.test("genericPlotly",Engine.Plotly)
 

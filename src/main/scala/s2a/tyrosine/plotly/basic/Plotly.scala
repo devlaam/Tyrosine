@@ -10,4 +10,9 @@ import s2a.tyrosine.{Optjon, nyet}
 @native
 @JSGlobal
 object Plotly extends js.Object :
-  def newPlot(graphDiv: String, plotData: Arraj[Plot], layout: Optjon[Layout] = nyet, config: Optjon[Config] = nyet): Unit = native
+  def newPlot(
+    graphDiv: String,
+    plotData: Arraj[Plot],
+    layout: Optjon[Layout] = nyet,
+    config: Optjon[Config] = nyet
+    ): Unit = native
